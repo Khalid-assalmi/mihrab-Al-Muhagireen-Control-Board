@@ -1,6 +1,20 @@
 const Base_url = "https://mihrab-al-muhajireen-default-rtdb.europe-west1.firebasedatabase.app/";
 const dataContainer = document.querySelector(".container");
 
+const isControl = true;
+
+function checkIfIsControl() {
+    if (!document.querySelector(".addBtn")) return;
+
+    if (!isControl) {
+        document.querySelector(".addBtn").style.display = "";
+    } else {
+        document.querySelector(".addBtn").style.display = "flex";
+    }
+}
+
+checkIfIsControl();
+
 const urls = {
     lessons: `${Base_url}lessons.json`,
     lectures: `${Base_url}lectures.json`,
@@ -122,7 +136,11 @@ function display() {
     let urlParams = new URLSearchParams(queryString);
     let index = urlParams.get("index");
 
-    document.querySelector("#h3").textContent = arrType[index[6]].name;
-    document.querySelector("#p").textContent = arrType[index[6]].description;
+    let arr = [...arrType];
+
+    arr.reverse();
+
+    document.querySelector("#h3").textContent = arr[index[6]].name;
+    document.querySelector("#p").textContent = arr[index[6]].description;
 
 }

@@ -5,7 +5,7 @@
     --font: #000000;
     --card-bg: #da9d2c;
     --gray-font: #7a7979;
-    --data-card-bg: #fde8c2;
+    --data-card-bg: #fff2da;
 }
 body {
     background-color: var(--main-bg);
@@ -38,8 +38,8 @@ header .addBtn {
     cursor: pointer;
     color: var(--main-font);
     font-size: 38px;
-    display: flex;
-    align-items: center;
+    display: none;
+    align-items: center; /* For flex box display */
     font-weight: 600;
     text-decoration: none;
 }
@@ -212,7 +212,7 @@ header #menu:checked + label #span2 {
     border-radius: 12px;
     align-items: center;
     cursor: default;
-    border: 2px solid var(--main);
+    border-bottom: 2px solid var(--main);
 }
 .dataCard div {
     display: grid;
@@ -336,12 +336,13 @@ textarea {
 }
 #p {
     margin-top: 80px;
-    padding: 32px;
+    padding: 28px 19px;
     border: 1px solid var(--gray-font);
-    border-left: 16px solid var(--gray-font);
+    border-left: 9px solid var(--gray-font);
     border-radius: 12px;
-    height: 68vh;
+    height: 72vh;
     background-color: #f3f3f3;
     overflow-y: auto;
+    overflow-x: hidden;
     font-weight: 600;
 }
