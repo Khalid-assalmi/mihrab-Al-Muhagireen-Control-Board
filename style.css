@@ -1,0 +1,347 @@
+:root {
+    --main-bg: #ffffff;
+    --main: #be800b;
+    --main-font: #FFFFFF;
+    --font: #000000;
+    --card-bg: #da9d2c;
+    --gray-font: #7a7979;
+    --data-card-bg: #fde8c2;
+}
+body {
+    background-color: var(--main-bg);
+}
+header {
+    display: flex;
+    background-color: var(--main);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    cursor: default;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 12px var(--font);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+header div {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    padding: 0 25px;
+}
+header .addBtn {
+    width: 25px;
+    height: 25px;
+    border: none;
+    background-color: var(--main);
+    cursor: pointer;
+    color: var(--main-font);
+    font-size: 38px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    text-decoration: none;
+}
+header h3 {
+    color: var(--main-font);
+}
+#menu {
+    display: none;
+}
+header label {
+    width: 25px;
+    height: 25px;
+    border: none;
+    background-color: var(--main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    color: var(--font)
+}
+header label span {
+    width: 20px;
+    height: 2px;
+    background-color: var(--font);
+    display: block;
+    transition: 0.5s;
+}
+header #menu:checked + label #span1 {
+    rotate: -45deg;
+    translate: 0 5px;
+}
+header #menu:checked + label #span2 {
+    rotate: 45deg;
+    translate: 0 -3px;
+}
+.menu {
+    width: 50vw;
+    max-width: 300px;
+    background-color: var(--main-font);
+    height: 91vh;
+    border-radius: 8px;
+    position: fixed;
+    bottom: 0px;
+    right: 0;
+    animation: appear 0.4s linear forwards;
+    box-sizing: border-box;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px #000000;
+}
+.menu a {
+    text-decoration: none;
+    border-bottom: 2px solid var(--main);
+    padding: 5px 20px;
+    box-sizing: border-box;
+    width: 100%;
+    color: var(--main);
+    font-weight: 600;
+}
+@keyframes appear {
+    from {
+        translate: 300px 0;
+    }
+}
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 32px 20px 0 20px;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 10vh;
+}
+.card {
+    width: 80vw;
+    max-width: 500px;
+    height: 30vw;
+    max-height: 190px;
+    background-color: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    color: var(--main-font);
+    gap: 9px;
+    cursor: pointer;
+    transition: all 0.5s;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+.card i {
+    font-size: 28px;
+}
+.card:hover {
+    border: 1px solid var(--font);
+    transform: scale(1.02);
+}
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0000005d;
+}
+.passwordBox {
+    position: fixed;
+    top: 30vh;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    justify-self: center;
+    background-color: #FFFFFF;
+    padding: 40px 40px 26px 40px;
+    border-radius: 16px;
+    justify-content: center;
+}
+.passwordBox input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #727272;
+    border-radius: 0;
+    color: #000000;
+    width: 58vw;
+    max-width: 320px;
+    direction: rtl;
+}
+.passwordBox input:focus {
+    border: none;
+    border-bottom: 2px solid #1414ff;
+}
+.errorsBox, .correctBox {
+    display: none;
+    font-size: 13px;
+    direction: rtl;
+}
+.errorsBox {
+    color: red;
+}
+.correctBox {
+    color: green;
+}
+.passwordBox button {
+    width: 64px;
+    height: 36px;
+    background-color: var(--font);
+    border: none;
+    color: var(--main-font);
+    font-size: 16px;
+    font-weight: 800;
+    border-radius: 16px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 87px 18px;
+    gap: 14px;
+}
+.dataCard {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--data-card-bg);
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 12px;
+    align-items: center;
+    cursor: default;
+    border: 2px solid var(--main);
+}
+.dataCard div {
+    display: grid;
+    grid-template-columns: 200px;
+    grid-template-rows: 50px;
+    align-items: center;
+}
+.dataCard div h4 {
+    color:  var(--font);
+    white-space: nowrap;
+}
+.dataCard div small {
+    color: var(--gray-font);
+    white-space: nowrap;
+    width: 60vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.dataCard i {
+    color: var(--font);
+}
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+.error {
+    margin-top: 26vh;
+    color: var(--font)
+}
+.error span, .error i {
+    font-size: 64px;
+}
+.error i {
+    color: var(--gray-font);
+}
+.error span .slash {
+    display: block;
+    width: 80px;
+    height: 5.4px;
+    background-color: var(--font);
+    border-radius: 5px;
+    rotate: -45deg;
+    translate: 5px -48px;
+    border: 2px solid var(--main-bg)
+}
+.loadBox {
+    color: var(--font);
+    margin-top: 33vh;
+    font-size: 18px;
+}
+.circle {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--font);
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-radius: 50%;
+    animation: loading 1s linear infinite forwards;
+}
+@keyframes loading {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
+.inputs {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 19vh;
+}
+input, textarea, #label, select {
+    width: 78vw;
+    max-width: 460px;
+    background-color: transparent;
+    border: 1px solid var(--main);
+    border-radius: 16px;
+    padding: 12px;
+    box-sizing: border-box;
+    color: var(--font);
+    font-size: 15px;
+    font-weight: 600;
+}
+input:focus, label:focus, textarea:focus {
+    border: 2px dashed var(--main);
+    outline: none;
+}
+input {
+    height: 6vh;
+    max-height: 50px;
+}
+textarea {
+    resize: none;
+    height: 56vh;
+    font-size: 14px;
+    margin-bottom: 64px;
+}
+.rec-textarea {
+    height: 22vh;
+}
+.addButton {
+    position: fixed;
+    bottom : 9px;
+    justify-self: center;
+    display: block;
+    width: 56vw;
+    max-width: 300px;
+    height: 6vh;
+    cursor: pointer;
+    background-color: var(--main);
+    border: none;
+    color: var(--main-font);
+    font-size: 16px;
+    font-weight: 800;
+    border-radius: 16px;
+}
+#p {
+    margin-top: 80px;
+    padding: 32px;
+    border: 1px solid var(--gray-font);
+    border-left: 16px solid var(--gray-font);
+    border-radius: 12px;
+    height: 68vh;
+    background-color: #f3f3f3;
+    overflow-y: auto;
+    font-weight: 600;
+}

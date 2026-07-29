@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <title>mihrab Al-Muhagireen</title>
+</head>
+<body dir="rtl">
+    <header>
+        <div>
+            <input type="checkbox" id="menu">
+            <label for="menu" style="display: none;">
+                <span id="span1"></span>
+                <span id="span2"></span>
+            </label>
+            <h3>لوحة التحكم محراب المهاجرين</h3>
+        </div>
+        <i></i> <!-- عنصر فارغ لعدم كسر التصميم -->
+    </header>
+    <div class="cards">
+        <a class="card" href="Control/lessons.html">
+            <i class="fa-solid fa-book-open"></i>
+            <h4>الدروس</h4>
+        </a>
+
+        <a class="card" href="Control/lectures.html">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <h4>المحاضرات</h4>
+        </a>
+
+        <a class="card" href="Control/sermons.html">
+            <i class="fa-solid fa-microphone"></i>
+            <h4>الخُطب</h4>
+        </a>
+
+    </div>
+
+    <div class="backdrop"></div>
+
+    <div class="passwordBox" dir="ltr">
+        <input type="password" id="passwordInput" placeholder="كلمة المرور">
+        <div class="errorsBox"></div>
+        <div class="correctBox"></div>
+        <button id="submitPassword">تأكيد</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
