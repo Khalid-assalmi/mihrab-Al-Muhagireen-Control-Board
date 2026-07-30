@@ -344,8 +344,8 @@ textarea {
 }
 #p {
     position: fixed;
-    top: 70px;
-    bottom: 10px;
+    top: 14vh;
+    bottom: 15px;
     padding: 28px 19px;
     border: 1px solid var(--gray-font);
     border-left: 9px solid var(--main);
@@ -354,8 +354,8 @@ textarea {
     overflow-y: auto;
     overflow-x: hidden;
     margin: 0 10px;
-    width: 95vw;
-    max-width: 500px;
+    width: 97vw;
+    max-width: 540px;
     box-sizing: border-box;
     justify-self: center;
 }
