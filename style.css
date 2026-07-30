@@ -1,11 +1,11 @@
 :root {
-    --main-bg: #ffffff;
+    --main-bg: #fff2da;
     --main: #be800b;
     --main-font: #FFFFFF;
     --font: #000000;
     --card-bg: #da9d2c;
     --gray-font: #7a7979;
-    --data-card-bg: #fff2da;
+    --data-card-bg: #ffe8be;
 }
 body {
     background-color: var(--main-bg);
@@ -112,15 +112,15 @@ header #menu:checked + label #span2 {
     display: flex;
     flex-wrap: wrap;
     padding: 32px 20px 0 20px;
-    gap: 16px;
+    gap: 14px;
     justify-content: center;
-    margin-top: 10vh;
+    margin-top: 8vh;
 }
 .card {
-    width: 80vw;
-    max-width: 500px;
-    height: 30vw;
-    max-height: 190px;
+    width: 90vw;
+    max-width: 600px;
+    height: 32vw;
+    max-height: 240px;
     background-color: var(--card-bg);
     display: flex;
     flex-direction: column;
@@ -201,7 +201,7 @@ header #menu:checked + label #span2 {
     flex-direction: column;
     align-items: center;
     padding: 87px 18px;
-    gap: 14px;
+    gap: 8px;
 }
 .dataCard {
     display: flex;
@@ -213,6 +213,7 @@ header #menu:checked + label #span2 {
     align-items: center;
     cursor: default;
     border-bottom: 2px solid var(--main);
+    box-shadow: 0 0 2px #000;
 }
 .dataCard div {
     display: grid;
@@ -227,7 +228,7 @@ header #menu:checked + label #span2 {
 .dataCard div small {
     color: var(--gray-font);
     white-space: nowrap;
-    width: 60vw;
+    width: 80vw;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -241,7 +242,7 @@ header #menu:checked + label #span2 {
     gap: 16px;
 }
 .error {
-    margin-top: 26vh;
+    margin-top: 17vh;
     color: var(--font)
 }
 .error span, .error i {
@@ -257,8 +258,15 @@ header #menu:checked + label #span2 {
     background-color: var(--font);
     border-radius: 5px;
     rotate: -45deg;
-    translate: 5px -48px;
+    translate: 7px -46px;
     border: 2px solid var(--main-bg)
+}
+.error button {
+    background-color: var(--font);
+    color: var(--main-font);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 16px;
 }
 .loadBox {
     color: var(--font);
@@ -335,14 +343,31 @@ textarea {
     border-radius: 16px;
 }
 #p {
-    margin-top: 80px;
+    position: fixed;
+    top: 70px;
+    bottom: 10px;
     padding: 28px 19px;
     border: 1px solid var(--gray-font);
-    border-left: 9px solid var(--gray-font);
+    border-left: 9px solid var(--main);
     border-radius: 12px;
-    height: 72vh;
-    background-color: #f3f3f3;
+    background-color: #f5e6c8;
     overflow-y: auto;
     overflow-x: hidden;
-    font-weight: 600;
+    margin: 0 10px;
+    width: 95vw;
+    max-width: 500px;
+    box-sizing: border-box;
+    justify-self: center;
+}
+.notFoundError {
+    display: grid;
+    grid-template-rows: 72px 72px;
+    grid-template-columns: 240px;
+    justify-content: center;
+    justify-items: center;
+    cursor: default;
+    margin-top: 24vh;
+}
+.notFoundError span {
+    font-size: 54px;
 }

@@ -33,8 +33,10 @@ async function sendDataToServer(url, data) {
         });
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         alert("Data sent successfully:");
+        return true;
     } catch (error) {
         console.error(error.message);
+        return false;
     }
 }
 
@@ -49,7 +51,7 @@ function getDateOfToday() {
 }
 
 // preparation for sending data to the server
-function saveData(dataType, name, status, description) {
+async function saveData(dataType, name, status, description) {
     if (!name || !description) {
         alert("Please fill in all required fields.");
         return;
@@ -61,7 +63,8 @@ function saveData(dataType, name, status, description) {
             date: getDateOfToday()
         };
         // send data to the server.
-        sendDataToServer(urls[dataType], data);
+        let sendData = await sendDataToServer(urls[dataType], data);
+        if (sendData) location.href = dataType + ".html";
     }
 }
 
@@ -75,7 +78,7 @@ async function getData(url) {
             return result;
         }
         return result || [];
-    } catch {
+    } catch (error) {
         console.error(error.message); // print the error massege in console if server don't response or any error else.
         return null; // return null for print internet disconnected massage in displayData function.
     }
@@ -86,11 +89,10 @@ let arrType = JSON.parse(localStorage.getItem("arr")) || [];
 async function displayData(dataType) {
     var arr = await getData(urls[dataType]);
 
-    localStorage.setItem("arr", JSON.stringify(Object.values(arr)));
+    arr && localStorage.setItem("arr", JSON.stringify(Object.values(arr)));
 
-    arr = Object.values(arr);
+    if (arr) {arr = Object.values(arr); var id = Object.keys(arr)}
 
-    var id = Object.keys(arr);
     var randomFirst = Math.floor(Math.random() * 999999);
     var randomSecond = Math.floor(Math.random() * 999999);
 
@@ -102,6 +104,7 @@ async function displayData(dataType) {
                 <i class="slash"></i>
             </span>
             <h3>أنت غير متصل بالانترنت</h3>
+            <button onclick="location.reload()">إعادة المحاولة</button>
         </div>
         `;
         return; // for stop function.
@@ -140,7 +143,17 @@ function display() {
 
     arr.reverse();
 
-    document.querySelector("#h3").textContent = arr[index[6]].name;
-    document.querySelector("#p").textContent = arr[index[6]].description;
+    if (arr[index[6]]) {
+        document.querySelector("#h3").textContent = arr[index[6]].name;
+        document.querySelector("#p").textContent = arr[index[6]].description;
+    } else {
+        document.querySelector("#h3").textContent = "404 Not Found"
+        document.querySelector("#p").innerHTML = `
+        <div class="notFoundError">
+            <span>404</span>
+            <h2>Page Not Found</h2>
+        </div>
+        `;
+    }
 
 }
