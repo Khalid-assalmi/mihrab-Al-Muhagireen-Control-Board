@@ -2,7 +2,7 @@
     const menuCheckBox = document.getElementById("menu");
 
     let serverPassword = ""; // Variable to store the password from the server.
-    let password = ""; // Keep password varible empty to get password from server.
+    let password = "276134"; // Keep password varible empty to get password from server.
     let attempts = 6;
 
     let passwordInput = document.getElementById("passwordInput");
@@ -23,7 +23,7 @@
     }
 
     // get password from the server.
-    async function getPassword() {
+    /*async function getPassword() {
         try {
             const response = await fetch("https://mihrab-al-muhajireen-default-rtdb.europe-west1.firebasedatabase.app/password.json");
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -58,7 +58,7 @@
 
     window.ononline = () => {
         getPassword();
-    }
+    }*/
 
     function checkPassword() {
         if (!password) return; // Don't check of password if is null.
