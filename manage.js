@@ -4,12 +4,13 @@ const dataContainer = document.querySelector(".container");
 const isControl = true;
 
 function checkIfIsControl() {
-    if (!document.querySelector(".addBtn")) return;
 
     if (!isControl) {
-        document.querySelector(".addBtn").style.display = "";
+        if(document.querySelector(".toolBtn")) document.querySelector(".toolBtn").style.display = "";
+        if(document.querySelectorAll(".ctrlBtns")) document.querySelectorAll(".ctrlBtns").forEach((item => item.style.display= ""));
     } else {
-        document.querySelector(".addBtn").style.display = "flex";
+        if(document.querySelector(".toolBtn")) document.querySelector(".toolBtn").style.display = "flex";
+        if(document.querySelectorAll(".ctrlBtns")) document.querySelectorAll(".ctrlBtns").forEach((item => item.style.display= "inline-block"));
     }
 }
 

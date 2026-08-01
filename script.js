@@ -2,7 +2,7 @@
     const menuCheckBox = document.getElementById("menu");
 
     let serverPassword = ""; // Variable to store the password from the server.
-    let password = "276134"; // Keep password varible empty to get password from server.
+    let password = ""; // Keep password varible empty to get password from server.
     let attempts = 6;
 
     let passwordInput = document.getElementById("passwordInput");
@@ -23,7 +23,7 @@
     }
 
     // get password from the server.
-    /*async function getPassword() {
+    async function getPassword() {
         try {
             const response = await fetch("https://mihrab-al-muhajireen-default-rtdb.europe-west1.firebasedatabase.app/password.json");
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -32,7 +32,6 @@
             // Assuming the password is the first value in the returned object
             serverPassword = Object.values(result)[0];
             password = serverPassword; // Update the password variable with the fetched password.
-            console.log(password)
         } catch (error) {
             console.error(error.message);
             password = null;
@@ -58,7 +57,7 @@
 
     window.ononline = () => {
         getPassword();
-    }*/
+    }
 
     function checkPassword() {
         if (!password) return; // Don't check of password if is null.
@@ -72,7 +71,8 @@
                     setTimeout(() => {
                         backdrop.style.display = "none";
                         passwordBox.style.display = "none";
-                        sessionStorage.setItem("passwordBoxOpen", "true");
+                        passwordBox_isOpen = 'true';
+                        sessionStorage.setItem("passwordBoxOpen", passwordBox_isOpen);
                     }, 500);
                 } else {
                     attempts--;
@@ -89,7 +89,7 @@
         }
     }
 
-    setInterval(() => {if (passwordBox.style.display == "none" && !passwordBox_isOpen || backdrop.style.display == "none" && !passwordBox_isOpen) location.reload(true);}, 300);
+    setInterval(() => {if (passwordBox.style.display == "none" && !passwordBox_isOpen || backdrop.style.display == "none" && !passwordBox_isOpen) location.reload(true)}, 300);
 
     submitPassword.addEventListener("click", () => {
         checkPassword();
